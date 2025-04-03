@@ -434,9 +434,26 @@
     <script>
         fetch("nnavbar.html")
             .then(response => response.text())
-            .then(data => document.getElementById("navbar-placeholder").innerHTML = data);
+            .then(data => {
+                document.getElementById("navbar-placeholder").innerHTML = data;
+                
+                const hamburger = document.querySelector('.hamburger');
+                const mobileMenu = document.querySelector('.mobile-menu');
+                const dropdowns = document.querySelectorAll('.mobile-menu .dropdown');
 
-        // Intersection Observer for side images
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                });
+
+                dropdowns.forEach(dropdown => {
+                    const dropbtn = dropdown.querySelector('.dropbtn');
+                    dropbtn.addEventListener('click', () => {
+                        dropdown.classList.toggle('active');
+                    });
+                });
+            });
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -447,7 +464,6 @@
             threshold: 0.1
         });
 
-        // Observe all side image wrappers
         document.querySelectorAll('.side-image-wrapper').forEach((wrapper) => {
             observer.observe(wrapper);
         });
