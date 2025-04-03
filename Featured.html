@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured</title>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <script>
+        fetch("nnavbar.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("navbar-placeholder").innerHTML = data);
+    </script>
+    <h1>featured page</h1>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        /** {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Arial", sans-serif;
+        }*/ 
+
+        body {
+            background-color: #fff;
+        }
+
+        .main-heading{
+            margin: 0;
+            padding: 0;
+            font-size: 70px;
+            margin-top: 80px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.116);
+            margin-left: 30px;
+        }
+
+        .contact-container {
+            margin-left: 30px;
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 2fr; 
+            align-items: start;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-info h3 {
+            font-size: 14px;
+            font-weight: 500;
+            color: #777;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .contact-info p {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000;
+            margin: 0;
+        }
+
+        .contact-info .social-media {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-media a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f8f8f8;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 10px;
+            row-gap: 50px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 92%;
+            padding: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.173);
+            border-radius: 5px;
+            border-bottom: 2px solid #ddd;
+            background-color: transparent;
+            font-size: 16px;
+            outline: none;
+            transition: border-bottom 0.3s ease-in-out;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-bottom: 2px solid black;
+        }
+
+        .contact-form textarea {
+            grid-column: span 2;
+            height: 120px;
+            resize: none;
+        }
+
+        .submit-container {
+            grid-column: span 2;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .submit-container input {
+            width: 16px;
+            height: 16px;
+        }
+
+        .submit-btn {
+            grid-column: span 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            background: transparent;
+            font-size: 18px;
+            font-weight: 600;
+            color: black;
+            border: none;
+            border-bottom: 2px solid black;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form textarea,
+            .submit-container,
+            .submit-btn {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <script>
+        fetch("nnavbar.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("navbar-placeholder").innerHTML = data);
+    </script>
+    <div class="main-heading">
+        <p>Contact us</p>
+    </div>
+
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <div>
+                <h3>E-mail</h3>
+                <p>prodev@smartaura.in</p>
+            </div>
+
+            <div>
+                <h3>Phone</h3>
+                <p>0151-2271028</p>
+            </div>
+
+            <div>
+                <h3>Address</h3>
+                <p>sethiya mohalla 334001</p>
+            </div>
+
+            <div>
+                <h3>Social Media</h3>
+                <div class="social-media">
+                    <a href="#">in</a>
+                </div>
+            </div>
+        </div>
+
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your E-mail">
+            <input type="text" placeholder="Your Company">
+            <input type="tel" placeholder="Your Phone">
+            <textarea placeholder="Type your message..."></textarea>
+
+            <div class="submit-container">
+                <input type="checkbox" id="agree">
+                <label for="agree">Yes, I have read the privacy policy and agree.</label>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit →</button>
+        </form>
+    </div>
+
+</body>
+</html>
